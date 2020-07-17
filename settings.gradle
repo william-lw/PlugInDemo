@@ -1,0 +1,4 @@
+include ':pluginlogin'
+include ':plug_core'
+include ':app'
+rootProject.name = "PlugInDemo"
