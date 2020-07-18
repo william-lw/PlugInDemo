@@ -3,7 +3,9 @@ package com.example.plug_core;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -13,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 // 这是插件的基类，所有的activity都要继承这个类，
-public class BaseActivity extends AppCompatActivity implements ProxyActivityInterface {
+public abstract class BaseActivity extends AppCompatActivity implements ProxyActivityInterface {
     public Activity that;//这里的that 指的是我们的宿主app，因为插件是没有安装的 是没有上下文的
 
     @Override
@@ -53,6 +55,12 @@ public class BaseActivity extends AppCompatActivity implements ProxyActivityInte
         return that.getClassLoader();
     }
 
+
+    @Override
+    public Resources getResources() {
+        return that.getResources();
+    }
+
     @NonNull
     @Override
     public LayoutInflater getLayoutInflater() {
@@ -85,36 +93,29 @@ public class BaseActivity extends AppCompatActivity implements ProxyActivityInte
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     @Override
     public void onStart() {
-        super.onStart();
     }
 
     @Override
     public void onResume() {
-        super.onResume();
     }
 
     @Override
     public void onPause() {
-        super.onPause();
     }
 
     @Override
     public void onStop() {
-        super.onStop();
     }
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
     }
 }

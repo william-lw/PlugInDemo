@@ -71,6 +71,12 @@ public class ProxyActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        pluginObj.onResume();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         pluginObj.onDestroy();
