@@ -29,7 +29,7 @@ public class ProxyActivity extends AppCompatActivity {
             //因为插件的activity实现了我们的标准
             pluginObj = (ProxyActivityInterface) pluginConstructor.newInstance(new Object[]{});
             pluginObj.attach(this);//注入上下文
-            pluginObj.onCreate(new Bundle());//一定要调用onCreate
+            pluginObj.onCreate(savedInstanceState);//一定要调用onCreate
         } catch (Exception e) {
             if (e.getClass().getSimpleName().equals("ClassCastException")) {
                 //我这里是直接拿到异常判断的 ，也可的 拿到上面的plugClass对象判断有没有实现我们的接口

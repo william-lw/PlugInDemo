@@ -3,6 +3,7 @@ package com.example.pluginlogin;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +27,14 @@ public class MainActivity extends BaseActivity {
         String ss = getResources().getString(R.string.string_plugin);
         String string = getString(R.string.string_plugin);
         text.setText(string);
+
+        findViewById(R.id.go_other).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(that, SecondActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -42,5 +51,6 @@ public class MainActivity extends BaseActivity {
     public void onDestroy() {
         super.onDestroy();
     }
+
 
 }
